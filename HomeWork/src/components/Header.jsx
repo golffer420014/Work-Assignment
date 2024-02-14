@@ -7,6 +7,8 @@ const Navbar = () => {
   const [user, setUser] = useState(null);
   const [imageUser, setImageUser] = useState(null);
 
+  const [dd, setDd] = useState(false);
+
   useEffect(() => {
     const storedUserData = localStorage.getItem("userDetail");
     if (storedUserData) {
@@ -30,7 +32,8 @@ const Navbar = () => {
   };
 
   // console.log(imageUser)
-  // console.log(user)
+  // console.log(user);
+  // console.log(dd);
 
   return (
     <nav className="flex flex-col sm:flex-row items-center justify-between p-4 px-4 sm:px-32 drop-shadow-md text-black bg-white h-auto sm:h-[80px]">
@@ -40,7 +43,7 @@ const Navbar = () => {
       >
         <p className="text-white">LOGO</p>
       </a>
-      <div className="flex flex-col sm:flex-row items-center gap-4 sm:mt-0 sm:ml-[50px]">
+      <div className="flex flex-col sm:flex-row items-center sm:mt-0 sm:ml-[50px]">
         <a
           href="/"
           className="text-[#2A4B6A] text-[20px] font-bold underline underline-offset-1 "
@@ -51,18 +54,37 @@ const Navbar = () => {
       {user ? (
         <div className="flex flex-row p-2  w-[100px] ">
           <img src={imageUser} className="  w-[50px] h-[50px] rounded-full" />
-          <div className="w-[30px]"></div>
-          <button onClick={logout}>
+          <div className="w-[10px]"></div>
+          <button onClick={() => setDd(!dd)}>
             <FontAwesomeIcon icon={faCaretDown} className="text-[20px]" />
           </button>
 
           {/* <!-- Dropdown menu --> */}
-          <div
-            id="dropdown"
-            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
-          >
-            <p className="text-[#2A4B6A]">wadaw</p>
-          </div>
+          {dd ? (
+            <div class="w-[120px]  h-[150px] z-50 absolute bottom-[-155px] right-[200px] sm:right-[145px] bg-white divide-y  rounded-sm shadow w-44">
+              <div className="flex flex-col gap-1 items-center justify-center pt-2">
+                <img
+                  src={imageUser}
+                  className=" w-[35px] h-[35px] rounded-full"
+                />
+                <p className="text-md font-bold text-[#2A4B6A]">
+                  {user.email}
+                </p>
+                <div className=" w-[95%]  border-[#2A4B6A] border-b-[1px]"></div>
+              </div>
+              <div className="border-none px-2 pt-2 flex flex-col items-start">
+                <button className="text-[#2A4B6A]  text-start font-bold">
+                  Profile
+                </button>
+                <button
+                  onClick={logout}
+                  className=" text-[#2A4B6A] text-start font-bold"
+                >
+                  Logout
+                </button>
+              </div>
+            </div>
+          ) : null}
         </div>
       ) : (
         <a

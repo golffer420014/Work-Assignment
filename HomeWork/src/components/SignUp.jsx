@@ -93,7 +93,7 @@ const SignUp = () => {
             />
             <div className="absolute top-3 right-3 p-2 py-0 bg-black rounded-full">
               <form method="dialog">
-                <button className="text-white">X</button>
+                <button className="text-white outline-none">X</button>
               </form>
             </div>
           </div>
@@ -102,7 +102,7 @@ const SignUp = () => {
       {/*  */}
       <div className="flex  justify-center h-screen">
         <form onSubmit={submitForm}>
-          <div className="flex flex-col items-center  w-[500px] sm:w-[1263px] sm:h-[80vh] h-[2000px] my-6 sm:mt-6 py-[35px] border shadow-md shadow-gray-600/30">
+          <div className="flex flex-col items-center  w-[500px] sm:w-[1263px] sm:h-[80vh] h-[1650px] my-6 sm:mt-6 py-[35px] border shadow-md shadow-gray-600/30">
             <div>
               <div className="flex justify-center">
                 {/* img */}

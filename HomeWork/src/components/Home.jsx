@@ -27,7 +27,7 @@ const Home = () => {
   return (
     <>
       {/* banner */}
-      <div className="relative h-635">
+      <div className="relative h-635 -z-50">
         <img
           src={imageUrl}
           alt="Banner Image"
